@@ -45,7 +45,7 @@ public class Business {
         name = n;
         masterorderlist = new MasterOrderList();
         suppliers = new SupplierDirectory(this);
-        // solutionoffercatalog = new SolutionOfferCatalog();
+        solutionoffercatalog = new SolutionOfferCatalog(this);
         persondirectory = new PersonDirectory();
         customerdirectory = new CustomerDirectory(this);
         salespersondirectory = new SalesPersonDirectory(this);
@@ -74,6 +74,10 @@ public class Business {
 
     public SupplierDirectory getSupplierDirectory() {
         return suppliers;
+    }
+
+    public SolutionOfferCatalog getSolutionoffercatalog() {
+        return solutionoffercatalog;
     }
 
     public ProductsReport getSupplierPerformanceReport(String n) {
