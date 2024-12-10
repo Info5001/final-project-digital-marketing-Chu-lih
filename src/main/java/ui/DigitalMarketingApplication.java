@@ -8,6 +8,9 @@ package ui;
 
 import model.Business.Business;
 import model.Business.ConfigureABusiness;
+import java.util.Scanner;
+import model.OrderManagement.MasterOrderReport;
+
 
 /**
  *
@@ -75,11 +78,68 @@ public class DigitalMarketingApplication {
      * 4. Add any additional features you think will improve user experience
      */
 
+    /* 
     Business business = ConfigureABusiness.createABusinessAndLoadALotOfData("Amazon", 50, 10, 30,
         100,
         10);
 
     business.printShortInfo();
+    */
 
-  }
+    Business business = ConfigureABusiness.createABusinessAndLoadALotOfData("DigitalMarket Inc.", 3, 4, 30, 100, 10);
+
+        Scanner scanner = new Scanner(System.in);
+        MasterOrderReport orderReport = new MasterOrderReport();
+
+        while (true) {
+            System.out.println("Welcome to Digital Marketing App!");
+            System.out.println("1. View Market Profitability Report");
+            System.out.println("2. View Channel Profitability Report");
+            System.out.println("3. Browse Products");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    // Generate Market Profitability Report
+                    generateMarketProfitabilityReport(orderReport);
+                    break;
+                case 2:
+                    // Generate Channel Profitability Report
+                    generateChannelProfitabilityReport(orderReport);
+                    break;
+                case 3:
+                    // Browse and purchase products
+                    browseProducts(business);
+                    break;
+                case 4:
+                    System.out.println("Thank you for using Digital Marketing App!");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+
+    private static void generateMarketProfitabilityReport(MasterOrderReport report) {
+        System.out.println("Generating Market Profitability Report...");
+        // Implement logic to generate and display the report
+        report.printOrderReport();
+    }
+
+    private static void generateChannelProfitabilityReport(MasterOrderReport report) {
+        System.out.println("Generating Channel Profitability Report...");
+        // Implement logic to generate and display the report
+        report.printOrderReport();
+    }
+
+    private static void browseProducts(Business business) {
+        System.out.println("Browsing Products...");
+        // Display products from the business and simulate a purchase
+        business.printShortInfo();
+    }
+  
+    
 }

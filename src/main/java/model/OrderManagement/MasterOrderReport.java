@@ -52,4 +52,18 @@ public class MasterOrderReport {
         }
 
     }
+
+    public void generateMarketProfitabilityReport() {
+        System.out.println("Market Profitability Report");
+        for (OrderSummary os : orderSummaryList) {
+            System.out.println("Market: " + os.getMarket() + ", Revenue: $" + os.getOrderTotal());
+        }
+    }
+    
+    public void generateChannelProfitabilityReport() {
+        System.out.println("Channel Profitability Report");
+        for (OrderSummary os : orderSummaryList) {
+            System.out.println("Channel: " + os.getChannel() + ", Profit: $" + os.getOrderProfit());
+        }
+    }
 }

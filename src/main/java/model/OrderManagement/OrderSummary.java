@@ -16,6 +16,9 @@ public class OrderSummary {
     int orderpriceperformance;
     int numberofOrderitemsabovetarget;
     String customerId;
+    String market;
+    int orderTotal;
+    String channel;
     
 public OrderSummary(Order o){
     salesvolume = o.getOrderTotal();
@@ -33,6 +36,18 @@ public int getOrderProfit(){
 
 public void printOrderSummary(){
     System.out.println("| " + customerId + " | " + numberOfItems + " | " + salesvolume);
+}
+
+public String getMarket() {
+    return market;
+}
+
+public int getOrderTotal() {
+    return orderTotal;
+}
+
+public String getChannel() {
+    return channel;
 }
 
 }
